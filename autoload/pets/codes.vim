@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
-let g:pets_birth_enable = 0
-let g:pets_lifetime_enable = 0
+" let g:pets_birth_enable = 0
+" let g:pets_lifetime_enable = 0
 " https://www.nerdfonts.com/cheat-sheet
 let s:pets = {
             \ 'vim': nr2char(0xe62b),
@@ -27,6 +27,13 @@ endfunction
 
 function! pets#codes#get_pet_names() abort
     return keys(s:pets)
+endfunction
+
+function! pets#codes#config() abort
+    return {
+                \ 'pets_birth_enable': 0,
+                \ 'pets_lifetime_enable': 0,
+                \ }
 endfunction
 
 function! pets#codes#get_bg() abort
