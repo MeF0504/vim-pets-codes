@@ -11,12 +11,13 @@ let s:pets = {
             \ 'terminal': nr2char(0xe795),
             \ 'markdown': nr2char(0xe609),
             \ }
+let pets#themes#codes#type = 'emoji'
 
-let g:pets#codes#lifetime_enable = 0
-let g:pets#codes#birth_enable = 0
-let g:pets#codes#ball_image = nr2char(0xeae8)
+let g:pets#themes#codes#lifetime_enable = 0
+let g:pets#themes#codes#birth_enable = 0
+let g:pets#themes#codes#ball_image = nr2char(0xeae8)
 
-function! pets#codes#get_pet(name) abort
+function! pets#themes#codes#get_pet(name) abort
     if !has_key(s:pets, a:name)
         echohl ErrorMsg
         echo printf('"%s" is not in this world.', a:name)
@@ -27,11 +28,11 @@ function! pets#codes#get_pet(name) abort
     return s:pets[a:name]
 endfunction
 
-function! pets#codes#get_pet_names() abort
+function! pets#themes#codes#get_pet_names() abort
     return keys(s:pets)
 endfunction
 
-function! pets#codes#get_bg() abort
+function! pets#themes#codes#get_bg() abort
     let bg = [
                 \ "10",
                 \ "01",
@@ -39,7 +40,7 @@ function! pets#codes#get_bg() abort
     return bg
 endfunction
 
-function! pets#codes#bg_setting() abort
+function! pets#themes#codes#bg_setting() abort
     highlight PetsGardenBG1 ctermfg=22 ctermbg=None guifg=#004820 guibg=NONE
     highlight PetsGardenBG2 ctermfg=47 ctermbg=None guifg=#203510 guibg=NONE
     call matchadd('PetsGardenBG1', '0')
