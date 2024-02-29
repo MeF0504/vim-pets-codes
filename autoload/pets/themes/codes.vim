@@ -13,9 +13,9 @@ let s:pets = {
             \ }
 let pets#themes#codes#type = 'emoji'
 
-let g:pets#themes#codes#lifetime_enable = 0
-let g:pets#themes#codes#birth_enable = 0
-let g:pets#themes#codes#ball_image = nr2char(0xeae8)
+let g:pets#themes#codes#lifetime_enable = get(g:, 'pets#themes#codes#lifetime_enable', 0)
+let g:pets#themes#codes#birth_enable = get(g:, 'pets#themes#codes#birth_enable', 0)
+let g:pets#themes#codes#ball_image = get(g:, 'pets#themes#codes#ball_image', nr2char(0xeae8))
 
 function! pets#themes#codes#get_pet(name) abort
     if !has_key(s:pets, a:name)
